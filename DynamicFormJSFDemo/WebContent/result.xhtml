@@ -1,0 +1,20 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+	<ui:define name="content">
+		<h2>Resultat</h2>
+		<p:dataTable styleClass="table table-striped"
+			value="#{DynaFormController.dataFields}" var="field">
+			<p:column headerText="Field-ID">#{field.id}</p:column>
+			<p:column headerText="Field-Type">#{field.dataType}</p:column>
+			<p:column headerText="Field-Value">#{field.value}</p:column>
+		</p:dataTable>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<p:messages id="messages" showSummary="true" />
+			<pe:dynaForm id="dynaForm"
+				value="#{DynaFormController.formMetaModel}" var="data">
+				<pe:dynaFormControl type="INPUT" for="txt">
+					<p:inputText id="txt" value="#{data.value}"
+						styleClass="#{data.fieldStyle.name() == 'MINI' ? 'input-mini' : '' }"
+						required="#{data.required}" />
+				</pe:dynaFormControl>
+				<pe:dynaFormControl type="SELECT" for="select">
+					<h:selectOneMenu id="select" value="#{data.value}"
+						required="#{data.required}">
+						<f:selectItems value="#{data.masterDataList}" var="item"
+							itemValue="#{item.code}" itemLabel="#{item.name}" />
+					</h:selectOneMenu>
+				</pe:dynaFormControl>
+				<pe:dynaFormControl type="CALENDAR" for="cal" styleClass="calendar">
+					<p:calendar id="cal" value="#{data.value}"
+						required="#{data.required}" showOn="button" />
+				</pe:dynaFormControl>
+				<f:facet name="buttonBar">
+					<h:commandButton value="Send" styleClass="btn"
+						action="#{DynaFormController.submit}" />
+				</f:facet>
+			</pe:dynaForm>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
