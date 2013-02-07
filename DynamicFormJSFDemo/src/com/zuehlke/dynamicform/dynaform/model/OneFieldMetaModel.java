@@ -1,6 +1,6 @@
-package com.zuehlke.dynamicform.model;
+package com.zuehlke.dynamicform.dynaform.model;
 
-import static com.zuehlke.dynamicform.model.FieldStyle.NORMAL;
+import static com.zuehlke.dynamicform.dynaform.model.FieldStyle.NORMAL;
 
 
 public class OneFieldMetaModel extends BaseFieldMetaModel {

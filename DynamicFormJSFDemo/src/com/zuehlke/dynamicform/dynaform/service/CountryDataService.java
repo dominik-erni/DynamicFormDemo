@@ -1,9 +1,9 @@
-package com.zuehlke.dynamicform.service;
+package com.zuehlke.dynamicform.dynaform.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.zuehlke.dynamicform.model.MasterData;
+import com.zuehlke.dynamicform.dynaform.model.MasterData;
 
 public class CountryDataService {
 

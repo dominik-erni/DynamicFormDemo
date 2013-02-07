@@ -1,9 +1,9 @@
-package com.zuehlke.dynamicform.controller;
+package com.zuehlke.dynamicform.dynaform.controller;
 
 import org.primefaces.extensions.model.dynaform.DynaFormModel;
 import org.primefaces.extensions.model.dynaform.DynaFormRow;
 
-import com.zuehlke.dynamicform.model.OneFieldMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.OneFieldMetaModel;
 
 public class OneFieldGenerationStrategy extends
 		FieldGenerationStrategy<OneFieldMetaModel> {

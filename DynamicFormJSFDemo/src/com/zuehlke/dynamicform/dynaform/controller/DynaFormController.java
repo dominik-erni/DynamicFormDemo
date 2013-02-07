@@ -1,4 +1,4 @@
-package com.zuehlke.dynamicform.controller;
+package com.zuehlke.dynamicform.dynaform.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,11 +12,11 @@ import javax.faces.context.FacesContext;
 import org.primefaces.extensions.model.dynaform.DynaFormControl;
 import org.primefaces.extensions.model.dynaform.DynaFormModel;
 
-import com.zuehlke.dynamicform.model.BaseFieldMetaModel;
-import com.zuehlke.dynamicform.model.OneFieldMetaModel;
-import com.zuehlke.dynamicform.model.TwoFieldCompositeMetaModel;
-import com.zuehlke.dynamicform.service.DummyMetaModelService;
-import com.zuehlke.dynamicform.service.MetaModelService;
+import com.zuehlke.dynamicform.dynaform.model.BaseFieldMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.OneFieldMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.TwoFieldCompositeMetaModel;
+import com.zuehlke.dynamicform.dynaform.service.DummyMetaModelService;
+import com.zuehlke.dynamicform.dynaform.service.MetaModelService;
 
 @ManagedBean(name = "DynaFormController")
 @ViewScoped

@@ -1,8 +1,8 @@
-package com.zuehlke.dynamicform.controller;
+package com.zuehlke.dynamicform.dynaform.controller;
 
 import org.primefaces.extensions.model.dynaform.DynaFormModel;
 
-import com.zuehlke.dynamicform.model.BaseFieldMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.BaseFieldMetaModel;
 
 public abstract class FieldGenerationStrategy<T extends BaseFieldMetaModel> {
 

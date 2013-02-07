@@ -1,4 +1,4 @@
-package com.zuehlke.dynamicform.model;
+package com.zuehlke.dynamicform.dynaform.model;
 
 import java.io.Serializable;
 

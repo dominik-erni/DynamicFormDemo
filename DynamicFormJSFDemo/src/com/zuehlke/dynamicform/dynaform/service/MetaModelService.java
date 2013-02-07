@@ -1,8 +1,8 @@
-package com.zuehlke.dynamicform.service;
+package com.zuehlke.dynamicform.dynaform.service;
 
 import java.util.Collection;
 
-import com.zuehlke.dynamicform.model.BaseFieldMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.BaseFieldMetaModel;
 
 public interface MetaModelService {
 

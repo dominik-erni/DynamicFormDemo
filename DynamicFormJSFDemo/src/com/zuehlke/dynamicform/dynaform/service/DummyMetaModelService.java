@@ -1,15 +1,15 @@
-package com.zuehlke.dynamicform.service;
+package com.zuehlke.dynamicform.dynaform.service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import com.zuehlke.dynamicform.model.BaseFieldMetaModel;
-import com.zuehlke.dynamicform.model.FieldDataType;
-import com.zuehlke.dynamicform.model.FieldStyle;
-import com.zuehlke.dynamicform.model.MasterData;
-import com.zuehlke.dynamicform.model.OneFieldMetaModel;
-import com.zuehlke.dynamicform.model.OneFieldSelectionMetaModel;
-import com.zuehlke.dynamicform.model.TwoFieldCompositeMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.BaseFieldMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.FieldDataType;
+import com.zuehlke.dynamicform.dynaform.model.FieldStyle;
+import com.zuehlke.dynamicform.dynaform.model.MasterData;
+import com.zuehlke.dynamicform.dynaform.model.OneFieldMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.OneFieldSelectionMetaModel;
+import com.zuehlke.dynamicform.dynaform.model.TwoFieldCompositeMetaModel;
 
 public class DummyMetaModelService implements MetaModelService {
 

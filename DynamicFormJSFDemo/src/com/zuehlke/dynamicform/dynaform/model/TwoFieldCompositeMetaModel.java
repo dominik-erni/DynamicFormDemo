@@ -1,4 +1,4 @@
-package com.zuehlke.dynamicform.model;
+package com.zuehlke.dynamicform.dynaform.model;
 
 public class TwoFieldCompositeMetaModel extends BaseFieldMetaModel {
 
