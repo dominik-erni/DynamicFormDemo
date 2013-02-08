@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+	<ui:define name="content">
+		<h:form>
+			<p:messages id="messages" severity="error" />
+			<p:growl id="growl" sticky="true" severity="info" showDetail="true" />
+
+			<p:panel>
+				<fieldset>
+					<legend>Gesundheitsfragen</legend>
+					<ui:repeat value="#{HealthQuestionController.healthQuestions}"
+						var="data">
+						<h:panelGroup rendered="#{not data.baseQuestion}">
+							<h:outputLabel value="#{data.questionText }" />
+							<p:inputText value="#{data.textAnswer}" required="true"
+								rendered="#{not data.yesNoQuestion}" />
+							<p:selectOneRadio value="#{data.yesNoAnswer}" required="true"
+								rendered="#{data.yesNoQuestion}">
+								<f:selectItem itemLabel="Ja" itemValue="#{true}" />
+								<f:selectItem itemLabel="Nein" itemValue="#{false}" />
+							</p:selectOneRadio>
+						</h:panelGroup>
+					</ui:repeat>
+				</fieldset>
+				<h:commandButton value="Send" styleClass="btn"
+					action="#{HealthQuestionController.submit}" />
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
