@@ -18,27 +18,31 @@
 					<ui:repeat value="#{HealthQuestionController.healthQuestions}"
 						var="data" varStatus="status">
 						<h:panelGroup rendered="#{not data.baseQuestion}" layout="block"
-							styleClass="row">
+							styleClass="row-fluid">
 							<h:panelGroup rendered="#{not data.yesNoQuestion}">
-								<div>
+								<div class="span3">
 									<h:outputLabel for="txt" value="#{data.questionText }" />
 								</div>
-								<p:inputText value="#{data.textAnswer}" required="true" id="txt"
-									requiredMessage="Bitte beantworten Sie diese Frage" />
-								<p:message for="txt" />
+								<div class="span3">
+									<p:inputText value="#{data.textAnswer}" required="true"
+										id="txt" requiredMessage="Bitte beantworten Sie diese Frage" />
+								</div>
+								<div class="span6">
+									<p:message for="txt" />
+								</div>
 							</h:panelGroup>
 							<h:panelGroup rendered="#{data.yesNoQuestion}">
-								<div class="span4">
+								<div class="span3">
 									<h:outputLabel for="radio" value="#{data.questionText }" />
 								</div>
-								<div class="span4">
+								<div class="span3">
 									<p:selectOneRadio value="#{data.yesNoAnswer}" required="true"
 										id="radio" requiredMessage="Bitte beantworten Sie diese Frage">
 										<f:selectItem itemLabel="Ja" itemValue="#{true}" />
 										<f:selectItem itemLabel="Nein" itemValue="#{false}" />
 									</p:selectOneRadio>
 								</div>
-								<div class="span4">
+								<div class="span6">
 									<p:message for="radio" />
 								</div>
 							</h:panelGroup>
