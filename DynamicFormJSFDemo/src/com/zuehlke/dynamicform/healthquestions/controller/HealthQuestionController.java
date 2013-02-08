@@ -5,6 +5,8 @@ import java.util.Collection;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import com.zuehlke.dynamicform.healthquestions.model.HealthQuestion;
@@ -12,6 +14,7 @@ import com.zuehlke.dynamicform.healthquestions.service.DummyHealthQuestionServic
 import com.zuehlke.dynamicform.healthquestions.service.HealthQuestionService;
 
 @ManagedBean(name = "HealthQuestionController")
+@SessionScoped
 public class HealthQuestionController implements Serializable {
 
 	private static final long serialVersionUID = -231616539676828488L;

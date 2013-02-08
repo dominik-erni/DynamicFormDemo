@@ -9,23 +9,39 @@
 <ui:composition template="/WEB-INF/templates/layout.xhtml">
 	<ui:define name="content">
 		<h:form>
-			<p:messages id="messages" severity="error" />
+			<p:messages id="messages" severity="error" globalOnly="true" />
 			<p:growl id="growl" sticky="true" severity="info" showDetail="true" />
 
 			<p:panel>
 				<fieldset>
 					<legend>Gesundheitsfragen</legend>
 					<ui:repeat value="#{HealthQuestionController.healthQuestions}"
-						var="data">
-						<h:panelGroup rendered="#{not data.baseQuestion}">
-							<h:outputLabel value="#{data.questionText }" />
-							<p:inputText value="#{data.textAnswer}" required="true"
-								rendered="#{not data.yesNoQuestion}" />
-							<p:selectOneRadio value="#{data.yesNoAnswer}" required="true"
-								rendered="#{data.yesNoQuestion}">
-								<f:selectItem itemLabel="Ja" itemValue="#{true}" />
-								<f:selectItem itemLabel="Nein" itemValue="#{false}" />
-							</p:selectOneRadio>
+						var="data" varStatus="status">
+						<h:panelGroup rendered="#{not data.baseQuestion}" layout="block"
+							styleClass="row">
+							<h:panelGroup rendered="#{not data.yesNoQuestion}">
+								<div>
+									<h:outputLabel for="txt" value="#{data.questionText }" />
+								</div>
+								<p:inputText value="#{data.textAnswer}" required="true" id="txt"
+									requiredMessage="Bitte beantworten Sie diese Frage" />
+								<p:message for="txt" />
+							</h:panelGroup>
+							<h:panelGroup rendered="#{data.yesNoQuestion}">
+								<div class="span4">
+									<h:outputLabel for="radio" value="#{data.questionText }" />
+								</div>
+								<div class="span4">
+									<p:selectOneRadio value="#{data.yesNoAnswer}" required="true"
+										id="radio" requiredMessage="Bitte beantworten Sie diese Frage">
+										<f:selectItem itemLabel="Ja" itemValue="#{true}" />
+										<f:selectItem itemLabel="Nein" itemValue="#{false}" />
+									</p:selectOneRadio>
+								</div>
+								<div class="span4">
+									<p:message for="radio" />
+								</div>
+							</h:panelGroup>
 						</h:panelGroup>
 					</ui:repeat>
 				</fieldset>
