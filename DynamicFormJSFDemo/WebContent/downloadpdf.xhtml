@@ -8,7 +8,7 @@
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <ui:composition template="/WEB-INF/templates/layout.xhtml">
 	<ui:define name="content">
-		<h:form>
+		<h:form prependId="false">
 			<div>
 				<h:commandLink value="Show PDF 1"
 					action="#{HandlePDFController.downloadPDF('inline')}"
@@ -22,11 +22,12 @@
 				<h:commandLink value="Open/Download PDF" onclick="poll.start()"
 					action="#{HandlePDFController.downloadPDF('attachment')}" />
 			</div>
-			<p:poll id="poll" interval="1" update="finished finishedMessage" autoStart="false"
+			<p:poll id="poll" interval="1" update="finished" autoStart="false"
 				widgetVar="poll" stop="#{HandlePDFController.downloadFinished}" />
-			
-			<h:outputText value="#{HandlePDFController.downloadFinished}"
-				id="finished" />
+			<p:panel>
+				<h:outputText value="#{HandlePDFController.downloadFinishedMsg}"
+					id="finished" />
+			</p:panel>
 		</h:form>
 	</ui:define>
 </ui:composition>

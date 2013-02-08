@@ -19,15 +19,9 @@ public class HandlePDFController implements Serializable {
 
 	private static final long serialVersionUID = 6347630075264679957L;
 
-	// Constants
-	// ----------------------------------------------------------------------------------
-
 	private static final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
 
 	private boolean downloadFinished;
-
-	// Actions
-	// ------------------------------------------------------------------------------------
 
 	public void downloadPDF(String type) throws IOException {
 
@@ -77,6 +71,14 @@ public class HandlePDFController implements Serializable {
 	private String getPathToResource() {
 		return getClass().getPackage().getName().replaceAll("\\.", "/")
 				+ "/SL_Offerte.pdf";
+	}
+
+	public String getDownloadFinishedMsg() {
+		if (downloadFinished) {
+			return "Download beendet!";
+		} else {
+			return "";
+		}
 	}
 
 	private static void close(Closeable resource) {
