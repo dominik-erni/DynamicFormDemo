@@ -13,6 +13,9 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletResponse;
 
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
+
 @ManagedBean(name = "HandlePDFController")
 @SessionScoped
 public class HandlePDFController implements Serializable {
@@ -97,6 +100,14 @@ public class HandlePDFController implements Serializable {
 
 	public boolean isDownloadFinished() {
 		return downloadFinished;
+	}
+
+	public StreamedContent getFile() {
+		InputStream input = getClass().getClassLoader().getResourceAsStream(
+				getPathToResource());
+		StreamedContent file = new DefaultStreamedContent(input,
+				"application/pdf", "file.pdf");
+		return file;
 	}
 
 }

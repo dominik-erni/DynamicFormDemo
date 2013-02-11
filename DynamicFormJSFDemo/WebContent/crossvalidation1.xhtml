@@ -8,25 +8,37 @@
 <ui:composition template="/WEB-INF/templates/layout.xhtml">
 	<ui:define name="content">
 		<h2>Crossfield Validation in JSF2</h2>
-		<form class="form-horizontal">
+		<h:form class="form-horizontal">
+			<h:inputHidden value="true">
+				<f:validator validatorId="crossValidator" />
+				<f:attribute name="name" value="#{name}" />
+				<f:attribute name="birthdate" value="#{birthdate}" />
+			</h:inputHidden>
 			<div class="control-group">
 				<label class="control-label" for="name">Name</label>
 				<div class="controls">
-					<p:inputText id="name"/>
+					<p:inputText id="name" binding="#{name}" required="true"
+						requiredMessage="Name muss gefüllt sein!"
+						value="#{CrossValidationController.name }" />
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="birthdate">Birthdate</label>
 				<div class="controls">
-					<p:calendar id="birthdate"/>
+					<p:calendar id="birthdate" binding="#{birthdate}"
+						value="#{CrossValidationController.birthdate }" />
 				</div>
 			</div>
 			<div class="control-group">
 				<div class="controls">
-					<p:commandButton value="Submit" styleClass="btn" />
+					<h:commandButton value="Submit" styleClass="btn"
+						action="#{CrossValidationController.submit}" />
 				</div>
 			</div>
-		</form>
+			<div>
+				<p:messages showDetail="true" showSummary="true" />
+			</div>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

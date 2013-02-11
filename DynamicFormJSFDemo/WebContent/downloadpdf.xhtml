@@ -28,6 +28,32 @@
 				<h:outputText value="#{HandlePDFController.downloadFinishedMsg}"
 					id="finished" />
 			</p:panel>
+
+			<p:dialog modal="true" widgetVar="statusDialog" header="Status" 
+				draggable="false" closable="true" resizable="false">
+				<p:panel>
+					Donwload beendet!
+				</p:panel>
+			</p:dialog>
+
+
+			<h:commandLink id="downloadLink" value="Download"
+				onclick="PrimeFaces.monitorDownload(start, stop)"
+				icon="ui-icon-arrowthichk-s">
+				<p:fileDownload value="#{HandlePDFController.file}" />
+			</h:commandLink>
+
+
+			<script type="text/javascript">
+				function start() {
+
+				}
+
+				function stop() {
+					statusDialog.show();
+				}
+			</script>
+
 		</h:form>
 	</ui:define>
 </ui:composition>
